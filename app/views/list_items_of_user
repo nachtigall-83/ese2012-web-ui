@@ -1,11 +1,12 @@
 %link(rel="stylesheet" type="text/css" href="/style.css")
-%h1 User
+%h1 Items of User
 %a{:href => "/logout"} Logout
 %ul
-  - for item in list_of_items
+  - for user in users
     - if user.name == current_name
-      %li{:class => "selected"}
-        #{item.name} (status = #{item.status})      //status true/false in activ/inactive umwandeln
+        - for item in user.list_of_items
+            %li{:class => "selected"}
+            #{item.name} (status = #{item.status})      //status true/false in activ/inactive umwandeln
     - else
       %li{:class => nil} #{item.name}
 
