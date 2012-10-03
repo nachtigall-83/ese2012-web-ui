@@ -11,4 +11,4 @@ class Main < Sinatra::Application
                                       :current_name => session[:name] }
   end
 
-  end
+end

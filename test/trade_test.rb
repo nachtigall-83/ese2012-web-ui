@@ -1,6 +1,6 @@
 
-require './app/trading/user'
-require './app/trading/item'
+require 'app/models/trading/user'
+require 'app/models/trading/item'
 require 'test/unit'
 
 class TradeTest < Test::Unit::TestCase
