@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'sinatra'
+require 'require_relative'
 require 'tilt/haml'
-require_relative 'models/trading/user'
-require '../app/controllers/main'
-require '../app/controllers/authentication'
+require_relative  'models/trading/user'
+require_relative '../app/controllers/main'
+require_relative '../app/controllers/authentication'
 
 class App < Sinatra::Base
 
@@ -18,7 +19,7 @@ class App < Sinatra::Base
     University::User.named( 'Joel' ).save()
     University::User.named( 'Aaron').save()
     University::Item.named( 'cookie', 5, Erwann).save()
-end
-
+ end
 # Now, run it
 App.run!
+end
