@@ -1,14 +1,27 @@
 require 'tilt/haml'
 require 'app/models/trading/user'
-class Main < Sinatra::Application
 
-  get "/" do
+module Controllers
 
-    redirect '/login' unless session[:name]
 
-    haml :list_items, :locals => { :time => Time.now ,
-                                      :items => Trading::Item.all,
+  class Main < Sinatra::Application
+
+    before do
+      redirect '/login' unless session[:name]
+    end
+
+    get "/" do
+      redirect "/list_active_items"
+    end
+
+    get "/list_active_items" do
+    #To do
+      haml :list_active_items, :locals => {:items => Trading::Item.all,
                                       :current_name => session[:name] }
-  end
+    end
 
+    post "/buy" do
+    #To do
+    end
+  end
 end
