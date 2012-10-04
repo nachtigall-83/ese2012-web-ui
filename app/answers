@@ -1,0 +1,12 @@
+Explain how a typical HTTP request is processed with the framework (the request lifecycle)
+First the browser translates the URL to an IP address if it does already know it. If it does not know it, it contacts a DNS server to resolve the name.
+Then browser will open a TCP connection to the IP address of the URL and send a HTTP GET request over. 
+The server software will get this HTTP request. It will somehow generate a HTTP response and send that back trough the TCP connection.
+When the browser gets the response, it typically renders it on screen. 
+
+
+Why should GET requests be idempotent?
+Because GET requests should not modify anything on the server. They should only show the content.
+
+Where should you format data for rendering?
+It should be as late as possible. 
