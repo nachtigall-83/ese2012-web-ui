@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'sinatra'
-require 'require_relative'
-require 'tilt/haml'
+#require 'require_relative'
+require 'haml'
 
-require 'app/models/trading/user'           #evt require_relative 'models/trading/user'
-require 'app/controllers/main'
-require 'app/controllers/authentication'
+require 'models/trading/user'           #evt require_relative 'models/trading/user'
+require 'controllers/main'
+require 'controllers/authentication'
 
 
 class App < Sinatra::Base
@@ -35,7 +35,9 @@ class App < Sinatra::Base
     lina.save
   end
 
+end
+
 # Now, run it
 App.run!
-end
+
 
