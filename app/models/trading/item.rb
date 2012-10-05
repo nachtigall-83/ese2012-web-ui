@@ -13,6 +13,10 @@ module Trading
       @@items.detect {|item| item.name == name }
     end
 
+    def save
+      @@items.push self
+    end
+
     #factory method
     def self.named(name, price, owner)
       item = self.new
