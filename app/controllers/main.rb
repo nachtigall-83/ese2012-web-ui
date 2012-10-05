@@ -20,8 +20,18 @@ module Controllers
                                       :current_name => session[:name] }
     end
 
-    post "/buy" do
-    #To do
+    get "/user/:name" do
+      user = Trading::User.by_name(params[:name])
+      haml :list_items_of_user, :locals =>{:user => user}
     end
+
+    post "/buy" do
+      item = Trading::Item.by_name(params[:item])
+      user = Trading::User.by_name(params[:name])
+      user.buy_item(item)
+      redirect '/index'
+    end
+
   end
 end
+
